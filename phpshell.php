@@ -1,2 +1,2 @@
-GIF89a
-<?php phpinfor(); ?>
+GIF89a;
+<?php phpinfo(); ?>
