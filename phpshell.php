@@ -1,4 +1,4 @@
-GIF87a
+GIF87a;
 <?php
     phpinfo();
 ?>
